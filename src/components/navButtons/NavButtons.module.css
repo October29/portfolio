@@ -1,0 +1,22 @@
+
+.nav_button {
+  margin-right: 0.5rem;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
+}
+.nav_button img {
+  height: 2.2rem;
+  filter: drop-shadow(3px 3px 0px var(--secondary-color));
+  transition: all 0.1s ease-in-out;
+}
+
+.nav_button img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(5px 5px 0px var(--secondary-color))
+}
+
+.nav_button img:active {
+  filter: brightness(1);
+  transform: scale(1);
+}

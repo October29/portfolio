@@ -1,0 +1,40 @@
+:root {
+  /* Colors */
+  --primary-color: #FF7548;
+  --secondary-color: #9c528b;
+  --body-text-color: #FFA06E;
+  --background-color: #FFEDEA;
+  --shadow-color: #9c528b80;
+
+  /* Fonts */
+  --font-titles: 'Monocraft', sans-serif;
+  --font-body: 'GohuFont-Regular', sans-serif;
+}
+
+/* Font faces */
+@font-face {
+  font-family: 'Monocraft';
+  src:  url('./assets/fonts/Monocraft.woff2') format('woff2'),
+        url('./assets/fonts/Monocraft.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GohuFont-Regular';
+  src: url('./assets/fonts/GohuFont-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--background-color);
+}

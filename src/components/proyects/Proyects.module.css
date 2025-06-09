@@ -1,0 +1,30 @@
+.proyects_container {
+  padding: 5rem min(10%, 12rem);
+  background-color: var(--primary-color);
+}
+
+.proyects_container h2 {
+  font-family: var(--font-titles);
+  font-size: 2.5rem;
+  color: var(--background-color);
+  margin-bottom: 2rem;
+}
+
+.categories_proyects {
+  display: flex;
+  justify-content: start;
+  gap: 2rem;
+}
+
+.category a {
+  font-family: var(--font-titles);
+  font-size: 1.5rem;
+  color: var(--background-color);
+  text-decoration: none;
+}
+
+.category img {
+  width: 300px;
+  height: 500px;
+  aspect-ratio: 16 / 9;
+}

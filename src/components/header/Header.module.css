@@ -1,0 +1,51 @@
+
+.main_header {
+  width: min(90%, 1400px);
+  height: 35rem;
+  margin: 2rem auto 0;
+  border: 6px solid var(--primary-color);
+  background-color: var(--background-color); 
+  box-shadow: 8px 8px 0px var(--shadow-color);
+}
+
+.fixed_navbar_wrapper {
+  position: fixed; /* ¡Crucial! Esto la fija en la ventana del navegador. */
+  top: 0;          /* Se posiciona en la parte superior. */
+  left: 0;         /* Se posiciona a la izquierda. */
+  width: 100%;     /* Ocupa todo el ancho. */
+  z-index: 1000;   /* Asegura que esté por encima de otros elementos. */
+
+  /* Transición para un efecto suave al aparecer/desaparecer */
+  transition: transform 0.1s ease-in-out, opacity 0.1s ease-in-out;
+
+  /* ESTADO INICIAL: OCULTA ARRIBA Y TRANSPARENTE */
+  transform: translateY(-100%); /* La mueve completamente fuera de la vista hacia arriba */
+  opacity: 0;                     /* La hace completamente transparente */
+  pointer-events: none;           /* Deshabilita los clics cuando está oculta */
+}
+
+/* CLASE PARA HACER VISIBLE LA NAVBAR FIJA */
+.fixed_navbar_wrapper.visible {
+  transform: translateY(0); /* La mueve a su posición visible (top: 0) */
+  opacity: 1;                 /* La hace completamente opaca */
+  pointer-events: auto;       /* Habilita los clics cuando está visible */
+}
+
+/* NOTA: La clase .hidden ya no es estrictamente necesaria si el estado inicial es de oculto */
+/* pero la mantenemos para claridad si quieres forzar un estado oculto */
+/* .fixed_navbar_wrapper.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+} */
+
+
+@media (max-width: 450px) {
+
+  .main_header {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0px 8px 0px var(--shadow-color);
+  }
+}
