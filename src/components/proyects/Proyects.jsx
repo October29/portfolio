@@ -13,7 +13,6 @@ const Proyects = forwardRef((props, ref) => {
           <img
             src="https://picsum.photos/300/500"
             alt="Diseño y rediseño de identidad visual"
-            srcset=""
           />
         </div>
 
@@ -23,7 +22,6 @@ const Proyects = forwardRef((props, ref) => {
           <img
             src="https://picsum.photos/300/500"
             alt="Diseño para redes sociales"
-            srcset=""
           />
         </div>
         {/* Ilustracion */}
@@ -32,7 +30,6 @@ const Proyects = forwardRef((props, ref) => {
           <img
             src="https://picsum.photos/300/500"
             alt="Ilustraciones personalizadas"
-            srcset=""
           />
       </div>
       </div>

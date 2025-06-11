@@ -1,14 +1,25 @@
 import BrandingItem from '../components/brandingItem/BrandingItem';
 import TitleBar from '../components/titleBar/TitleBar';
 import style from './Branding.module.css';
+import brandingData from '../data/projects.data';
 
-/* construir modal para imagenes */
 
 const Branding = () => {
+  
   return (
     <main className={style.branding_container}>
       <TitleBar />
-      <BrandingItem />
+      {brandingData.map((item, index) => {
+        return (
+          <BrandingItem
+            key={index}
+            brandName={item.brandName}
+            description={item.description}
+            color={item.color}
+            />
+        )
+      }
+      )}
     </main>
   )
 }

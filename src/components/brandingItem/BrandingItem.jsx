@@ -1,56 +1,76 @@
 import { useState } from 'react';
 import style from './BrandingItem.module.css';
-import bradingImages from '../../data/projectsImages.data';
+import bradingData from '../../data/projects.data';
 import Modal from '../modal/Modal';
 
-const BrandingItem = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+const BrandingItem = ({ brandName, description, color }) => {
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
-  const handleImageClick = (image) => {
-    setSelectedImage(image);
+  const currentProject = bradingData.find(project => project.brandName === brandName);
+  
+  const handleImageClick = (index) => {
+    setSelectedImageIndex(index);
   };
 
   const handleCloseModal = () => {
-    setSelectedImage(null);
+    setSelectedImageIndex(null);
+  };
+
+  const handlePrevImage = () => {
+    if (selectedImageIndex > 0) {
+      setSelectedImageIndex(selectedImageIndex - 1);
+    } else {
+      // Ir a la última imagen si estamos en la primera
+      setSelectedImageIndex(currentProject.images.length - 1);
+    }
+  };
+
+  const handleNextImage = () => {
+    if (selectedImageIndex < currentProject.images.length - 1) {
+      setSelectedImageIndex(selectedImageIndex + 1);
+    } else {
+      // Volver a la primera imagen si estamos en la última
+      setSelectedImageIndex(0);
+    }
   };
 
   return (
     <div className={style.branding_item_container}>
-      <div className={style.text_container}>
-        <h2>Bunny Velvet</h2>
-        <p>
-          Si yo pudiera alzar el vuelo
-          Alzar el vuelo como hace el cóndor que vuela alto muy alto
-          Me fuera lejos, pero bien lejos
-          Adonde nadie nunca supiera del papa de Rafael Santos
-          
-          Porque una pena tras otra pena estan acabando conmigo
-          Y yo por ser un hombre tan fuerte he podido resistir
-          Ay y no me quiero morir porque me duelen mis hijos.
-        </p>
-      </div>
-      <div className={style.images_container}>
-        {bradingImages.map((image) => {
-          return (
-            <div 
-              key={image.id} 
-              className={style.image_wrapper}
-              onClick={() => handleImageClick(image)}
-            >
-              <img
-                src={image.url}
-                alt={image.alt}
-              />
-            </div>
-          );
-        })}
+      {/* Title and description content */}
+      <div className={style.text_container} style={{ backgroundColor: color }}>
+        <h2>{brandName}</h2>
+        <p>{description}</p>
       </div>
 
-      <Modal isOpen={selectedImage !== null} onClose={handleCloseModal}>
-        {selectedImage && (
+      {/* Images gallery */}
+      <div className={style.images_container}>
+        {currentProject && currentProject.images.map((image, index) => (
+          <div 
+            key={image.id} 
+            className={style.image_wrapper}
+            style={{ borderColor: color }}
+            onClick={() => handleImageClick(index)}
+          >
+            <img
+              src={image.url}
+              alt={image.alt}
+            />
+          </div>
+        ))}
+      </div>
+
+      <Modal 
+        isOpen={selectedImageIndex !== null} 
+        onClose={handleCloseModal} 
+        color={color}
+        brandName={brandName}
+        onPrev={handlePrevImage}
+        onNext={handleNextImage}
+      >
+        {selectedImageIndex !== null && currentProject && (
           <img
-            src={selectedImage.url}
-            alt={selectedImage.alt}
+            src={currentProject.images[selectedImageIndex].url}
+            alt={currentProject.images[selectedImageIndex].alt}
           />
         )}
       </Modal>
