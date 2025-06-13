@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   height: 4rem;
-  padding: 0.5rem 1rem;
+  padding: 0 1.5rem;
   background-color: var(--primary-color);
 }
 
@@ -13,6 +13,6 @@
 
 .page_title {
   font-family: var(--font-titles);
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: var(--background-color);
 }

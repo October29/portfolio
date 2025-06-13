@@ -6,10 +6,19 @@ const TitleBar = () => {
 
   const title = () => {
     const namePage = window.location.pathname.split("/").pop();
-    if (namePage === "") {
-      return "octoberDesigner";
-    } else if (namePage === "branding") {
-      return "/Branding";
+    
+    switch (namePage) {
+      case "branding":
+        return "/Branding";
+        break
+      case "ilustracion":
+        return "/Ilustración";
+        break
+      case "redes-sociales":
+        return "/Redes sociales";
+        break
+      default:
+        return namePage.charAt(0).toUpperCase() + namePage.slice(1);
     }
   }
   

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import style from './BrandingItem.module.css';
-import bradingData from '../../data/projects.data';
+import { brandingData } from '../../data/projects.data';
 import Modal from '../modal/Modal';
 
 const BrandingItem = ({ brandName, description, color }) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
-  const currentProject = bradingData.find(project => project.brandName === brandName);
+  const currentProject = brandingData.find(project => project.brandName === brandName);
   
   const handleImageClick = (index) => {
     setSelectedImageIndex(index);
