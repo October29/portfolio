@@ -6,7 +6,7 @@
   cursor: pointer;
 }
 .nav_button img {
-  height: 2.2rem;
+  height: clamp(1.2rem, 6vw, 2.2rem);
   filter: drop-shadow(3px 3px 0px var(--secondary-color));
   transition: all 0.1s ease-in-out;
 }

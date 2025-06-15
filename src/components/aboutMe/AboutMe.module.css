@@ -81,3 +81,30 @@
   font-family: var(--font-titles);
   color: var(--background-color);
 }
+
+@media screen and (max-width: 768px) {
+  .about_me_section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about_me_text {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+
+  .skills_list_container {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .list_skills_dev, .list_skills_design {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .skill_item {
+    width: auto;
+  }
+}

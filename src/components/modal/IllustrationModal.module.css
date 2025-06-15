@@ -1,0 +1,59 @@
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal_content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  border: 4px solid var(--primary-color);
+  border-bottom: 50px solid var(--primary-color);
+  user-select: none;
+}
+
+.modal_content img {
+  max-width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+}
+
+.navigation_buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  position: absolute;
+  width: 100%;
+  bottom: -7.4%;
+  left: 0%;
+}
+
+.nav_button {
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  background-color: transparent;
+  filter: drop-shadow(4px 4px 0 var(--secondary-color));
+  transition: all 0.1s ease;
+}
+
+
+
+.nav_button:hover {
+  transform: scale(1.02);
+  filter: brightness(1.2) drop-shadow(6px 6px 0 var(--secondary-color));
+}
+
+.nav_button:active {
+  transform: scale(1);
+  filter: brightness(0.8) drop-shadow(2px 2px 0 var(--secondary-color));
+}

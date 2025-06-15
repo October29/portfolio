@@ -8,6 +8,9 @@ const TitleBar = () => {
     const namePage = window.location.pathname.split("/").pop();
     
     switch (namePage) {
+      case "":
+        return "octoberDesigner";
+        break;
       case "branding":
         return "/Branding";
         break

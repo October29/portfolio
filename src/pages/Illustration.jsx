@@ -1,18 +1,28 @@
 import { useState } from "react";
 import style from "./Illustration.module.css";
 import TitleBar from "../components/titleBar/TitleBar";
+import IllustrationModal from "../components/modal/IllustrationModal";
 import { illustrationData } from "../data/projects.data";
 
 
 const Illustration = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   const handleImageClick = (illustration) => {
-    setSelectedImage(illustration);
+    const index = illustrationData.findIndex(img => img.id === illustration.id);
+    setSelectedIndex(index);
   };
 
-  const handleCloseModal = () => {
-    setSelectedImage(null);
+  const handleNext = () => {
+    setSelectedIndex((prevIndex) => 
+      prevIndex === illustrationData.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handlePrevious = () => {
+    setSelectedIndex((prevIndex) => 
+      prevIndex === 0 ? illustrationData.length - 1 : prevIndex - 1
+    );
   };
 
   return (
@@ -30,15 +40,13 @@ const Illustration = () => {
         ))}
       </div>
 
-      {selectedImage && (
-        <div className={style.modal_overlay} onClick={handleCloseModal}>
-          <div className={style.modal_content} onClick={(e) => e.stopPropagation()}>
-            <img src={selectedImage.url} alt={selectedImage.alt} />
-            <button className={style.close_button} onClick={handleCloseModal}>
-              ×
-            </button>
-          </div>
-        </div>
+      {selectedIndex !== null && (
+        <IllustrationModal 
+          image={illustrationData[selectedIndex]}
+          onClose={() => setSelectedIndex(null)}
+          onNext={handleNext}
+          onPrevious={handlePrevious}
+        />
       )}
     </main>
   );
